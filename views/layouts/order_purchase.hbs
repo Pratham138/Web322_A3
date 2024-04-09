@@ -1,0 +1,27 @@
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+  <h1 style="color: #333; text-align: center; align-items: center;">Order and Purchase</h1>
+
+  <!-- Display selected image details -->
+<div style="margin-bottom: 20px;">
+  <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+    <img src="/img/{{image.filename}}" alt="{{image.filename}}" style="max-width: 400px; height: auto; max-height: 400px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" />
+  </div>
+  <div style="text-align: center;">
+    <p style="margin-top: 10px; font-size: 18px; font-weight: bold;">Selected Image: {{image.description}}</p>
+    <p style="font-size: 16px; color: #666;">Price: ${{image.price}}</p>
+  </div>
+</div>
+
+
+  
+  <!-- Buttons for buy and cancel -->
+  <div style="display: flex; gap: 20px;">
+    <form action="/order/purchase" method="post">
+      <input type="hidden" name="imageId" value="{{image._id}}">
+      <button type="submit" style="background-color: #4caf50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 5px;" onmouseenter="this.style.backgroundColor='#45a049'" onmouseleave="this.style.backgroundColor='#4caf50'">BUY</button>
+    </form>
+    <form action="/order/cancel" method="post">
+      <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 5px;" onmouseenter="this.style.backgroundColor='#d32f2f'" onmouseleave="this.style.backgroundColor='#f44336'">CANCEL</button>
+    </form>
+  </div>
+</div>

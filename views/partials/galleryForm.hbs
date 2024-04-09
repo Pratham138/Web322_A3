@@ -1,0 +1,21 @@
+<form action="/gallery" method="post" id="gallery">
+  {{#each imageNames}}
+
+    <label for="{{this}}">
+      <input type="radio" name="image" value="{{this}}" id="{{this}}" />
+      {{this}}
+    </label>
+
+  {{/each}}
+
+  {{#each unsoldImages}}
+  <div>
+    <img src="{{FILENAME}}" alt="{{DESCRIPTION}}">
+    <p>Description: {{DESCRIPTION}}</p>
+    <p>Price: {{PRICE}}</p>
+    <a href="/orderPurchase?imageId={{_id}}">Order & Purchase</a>
+  </div>
+{{/each}}
+
+  <button type="submit">Submit</button>
+</form>

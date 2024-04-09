@@ -1,0 +1,25 @@
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+<div>
+  <a
+      href="/logout"
+      style="font-size: 1.5rem;"
+      id={{email}}
+      onmouseenter="this.textContent='Logout'"
+      onmouseleave="this.textContent=this.id"
+    >{{email}}</a>
+</div>
+  
+  <h1 style="color: #333; text-align: center; align-items: center;">Assignment Gallery</h1>
+  
+  <!-- Only display images that are unsold (available) -->
+  <form action="/order" method="get" style="display: flex; flex-direction: column; align-items: center;">
+    <select name="imageId" id="imageId" style="margin-bottom: 20px;">
+      {{#each images}}
+        <option value="{{ _id }}">{{ description }} - ${{ price }}</option> 
+      {{/each}}
+    </select>
+    
+    <!-- Submit button to view order and purchase page -->
+    <button type="submit" style="background-color: #4caf50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 5px;" onmouseenter="this.style.backgroundColor='#45a049'" onmouseleave="this.style.backgroundColor='#4caf50'">View Details</button>
+  </form>
+</div>
